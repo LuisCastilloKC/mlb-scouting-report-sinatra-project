@@ -1,0 +1,5 @@
+ 1.- Created my class in Models
+  - user
+  - report
+  - inheriting from ActiveRecord
+2.- 
