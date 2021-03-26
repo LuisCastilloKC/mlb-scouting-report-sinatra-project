@@ -1,0 +1,17 @@
+<h1>This is the Editing form</h1>
+<br>
+<form action="/reports/<%= @report.id %>"" method="POST">
+                <input id="hidden" type="hidden" name="_method" value="patch">
+    PLAYER NAME: <input type="text" value="<%= @report.player_name %>" name="player_name">
+    BATS: <input type="text" value="<%= @report.bats %>" name="bats">
+    THROWS: <input type="text" value="<%= @report.throws %>" name="throws">
+    DRAFTED: <input type="text" value="<%= @report.drafted %>" name="drafted">
+    POSITION: <input type="text" value="<%= @report.position %>" name="position">
+    AGE: <input type="number" value="<%= @report.age %>" name="age">
+    DOB: <input type="date" value="<%= @report.day_of_birth %>" name="day_of_birth">
+    HT: <input type="number" value="<%= @report.height %>" name="height">
+    WT: <input type="number" value="<%= @report.weight %>" name="weight">
+    <input type="submit" value="submit">
+
+</form>
+

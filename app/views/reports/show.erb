@@ -9,3 +9,7 @@ HT: <%= @report.height %><br>
 WT: <%= @report.weight %><br>
 
 
+<form method="post" action="/reports/<%= @report.id %>">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+</form>
