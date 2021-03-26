@@ -8,7 +8,7 @@ get '/reports/new' do
 end
 
 post '/reports' do
-    @report = Report.create(
+    @report = Report.new(
         player_name: params[:player_name], 
         bats: params[:bats], 
         throws: params[:throws], 
@@ -57,9 +57,6 @@ post '/reports/:id' do
     )
     redirect to "/reports/#{@report.id}"
 end
-
-
-#Delete
 
 delete '/reprots/:id' do
     @report = Report.find(params[:id])    

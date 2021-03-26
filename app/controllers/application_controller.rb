@@ -5,8 +5,12 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    enable :sessions          #secrect Password
+    # eneble :sessions          #secrect Password
+    use Rack::Session::Cookie, :key => 'rack.session',
+                           :path => '/',
+                           :secret => 'your_secret'
     set :session_secrect, '5Wj!6#85WdHJ#%*!.Ols61Ii1'
+    register Sinatra::Flash
   end
 
   get "/" do
