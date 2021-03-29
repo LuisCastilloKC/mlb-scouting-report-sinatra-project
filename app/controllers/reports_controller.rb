@@ -37,7 +37,7 @@ end
 #Update
 
 get '/reports/:id/edit' do
-    @report = Report.find(params[:id])
+    @report = Report.find_by_id(params[:id])
     erb :'/reports/edit'
 end
 
