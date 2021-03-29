@@ -1,8 +1,19 @@
 <% @reports.each do |report| %>
 
-    SCOUTING REPORT NUMBER: <%= report.id %>
+   <p> SCOUTING REPORT NUMBER: <%= report.id %> 
     PLAYER NAME: <%= report.player_name %>
-    BATS: <%= report.bats%>
-
+    BATS: <%= report.bats %>
+    THROWS: <%= report.throws %>
+    DRAFTED: <%= report.drafted %>
+    POSITION: <%= report.position %>
+    AGE: <%= report.age %>
+    DOB: <%= report.day_of_birth %>
+    HT: <%= report.height %>
+    WT: <%= report.weight %> </p>
+    
    
 <% end %>
+
+
+
+    
