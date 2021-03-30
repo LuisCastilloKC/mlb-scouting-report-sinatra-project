@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
 
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect to "/users/#{@user.id}"
+            #redirect to "/users/#{@user.id}"
+            redirect to "/reports"
         else
             redirect to "/users/login"
         end
@@ -28,7 +29,6 @@ class SessionsController < ApplicationController
         end
     
     get '/users/:id' do
-       
         @user = User.find(params[:id])
         erb :'/users/show'
     end

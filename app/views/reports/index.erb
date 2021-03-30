@@ -1,19 +1,36 @@
+
+
+
+
+
+
+
+
+
+
+
 <% @reports.each do |report| %>
 
-   <p> SCOUTING REPORT NUMBER: <%= report.id %> 
-    PLAYER NAME: <%= report.player_name %>
-    BATS: <%= report.bats %>
-    THROWS: <%= report.throws %>
-    DRAFTED: <%= report.drafted %>
-    POSITION: <%= report.position %>
-    AGE: <%= report.age %>
-    DOB: <%= report.day_of_birth %>
-    HT: <%= report.height %>
-    WT: <%= report.weight %> </p>
-    
-   
+
+   <p>  SCOUTING REPORT NUMBER: <%= report.id %> 
+        PLAYER NAME: <%= report.player_name %>
+        BATS: <%= report.bats %>
+        THROWS: <%= report.throws %>
+        DRAFTED: <%= report.drafted %>
+        POSITION: <%= report.position %>
+        AGE: <%= report.age %>
+        DOB: <%= report.day_of_birth %>
+        HT: <%= report.height %>
+        WT: <%= report.weight %> 
+
+        <% if current_user == report.user %>
+            <a href="/reports/<%= report.id %>/edit">edit</a>
+        <% end %>
+    </p> 
 <% end %>
 
 
+        
+        
 
     

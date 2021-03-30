@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     #set :method_override, true
     #Rack::MethodOverride
-    # eneble :sessions          #secrect Password
+     #enable :sessions          #secrect Password
     use Rack::Session::Cookie, :key => 'rack.session',
                            :path => '/',
                            :secret => 'your_secret'

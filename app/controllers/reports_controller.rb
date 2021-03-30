@@ -5,19 +5,27 @@ get '/reports/new' do
 end
 
 post '/reports' do
-    @report = Report.create(
-        player_name: params[:player_name], 
-        bats: params[:bats], 
-        throws: params[:throws], 
-        drafted: params[:drafted], 
-        position: params[:position], 
-        age: params[:age], 
-        day_of_birth: params[:day_of_birth], 
-        height: params[:height], 
-        weight: params[:weight]
-    )
+    @report = Report.new(params)
+    @report.user_id = session[:user_id]
+    @report.save
     redirect to "/reports/#{@report.id}"
 end
+
+# post '/reports' do
+#     @report = Report.create(
+        
+#         player_name: params[:player_name], 
+#         bats: params[:bats], 
+#         throws: params[:throws], 
+#         drafted: params[:drafted], 
+#         position: params[:position], 
+#         age: params[:age], 
+#         day_of_birth: params[:day_of_birth], 
+#         height: params[:height], 
+#         weight: params[:weight]
+#     )
+#     redirect to "/reports/#{@report.id}"
+# end
 
 get '/reports' do
     if current_user
@@ -38,8 +46,13 @@ end
 
 get '/reports/:id/edit' do
     @report = Report.find_by_id(params[:id])
-    erb :'/reports/edit'
+    if @report.user == current_user
+        erb :'/reports/edit'
+    else
+        "NOT AUTHORIZE TO EDIT THIS REPORT"
+    end
 end
+
 
 patch '/reports/:id' do
     @report = Report.find(params[:id])
