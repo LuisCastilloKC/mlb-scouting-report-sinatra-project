@@ -42,18 +42,19 @@ end
 
 
 
-#Update
+#edit route
 
 get '/reports/:id/edit' do
     @report = Report.find_by_id(params[:id])
     if @report.user == current_user
         erb :'/reports/edit'
     else
-        "NOT AUTHORIZE TO EDIT THIS REPORT"
+        flash[:error] = "NOT AUTHORIZE TO EDIT THIS REPORT"
+        redirect to '/reports'
     end
 end
 
-
+#update route
 patch '/reports/:id' do
     @report = Report.find(params[:id])
     @report.update(

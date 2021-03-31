@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
         
         if !logged_in?
             erb :'/users/login' 
+           
         else
             @user = User.find(session[:user_id])
             redirect "/users/#{@user.id}"
@@ -19,6 +20,7 @@ class SessionsController < ApplicationController
             #redirect to "/users/#{@user.id}"
             redirect to "/reports"
         else
+            flash[:error] = "Invalid login"
             redirect to "/users/login"
         end
     end

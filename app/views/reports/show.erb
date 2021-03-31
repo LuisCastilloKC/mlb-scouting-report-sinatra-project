@@ -8,7 +8,10 @@ DOB: <%= @report.day_of_birth %><br>
 HT: <%= @report.height %><br>
 WT: <%= @report.weight %><br>
 
-
+<div id='flash' class='error'>
+    <a class="close" data-dismiss="alert">&#215;</a>
+    <%= flash[:error] %>
+</div>
 
 <form method="get" action="/reports/<%= @report.id %>/edit">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
