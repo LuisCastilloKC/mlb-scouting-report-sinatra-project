@@ -12,21 +12,29 @@
 <% @reports.each do |report| %>
 
 
-   <p>  SCOUTING REPORT NUMBER: <%= report.id %> 
-        PLAYER NAME: <%= report.player_name %>
-        BATS: <%= report.bats %>
-        THROWS: <%= report.throws %>
-        DRAFTED: <%= report.drafted %>
-        POSITION: <%= report.position %>
-        AGE: <%= report.age %>
-        DOB: <%= report.day_of_birth %>
-        HT: <%= report.height %>
-        WT: <%= report.weight %> 
+   
+    <div>
+      <h3><b>Scouting Report Number: <%= report.id  %></b></h3>
+      <ul>
+        <li><b>Player Name:</b> <%= report.player_name %></li>
+        <li><b>Bats:</b> <%= report.bats %></li>
+        <li><b>Throws:</b> <%= report.throws %></li>
+        <li><b>Drafted:</b> <%= report.drafted %></li>
+        <li><b>Position:</b> <%= report.position %></li>
+        <li><b>Age:</b> <%= report.age %></li>
+        <li><b>Date of Birth:</b> <%= report.day_of_birth %></li>
+        <li><b>Hight:</b> <%= report.height %></li>
+        <li><b>Weight:</b> <%= report.weight %></li>
 
         <% if current_user == report.user %>
             <a href="/reports/<%= report.id %>/edit">edit</a>
         <% end %>
-    </p> 
+      </ul>
+
+    
+ </div> 
+
+        
 <% end %>
 
 
