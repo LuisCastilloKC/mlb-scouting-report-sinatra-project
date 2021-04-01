@@ -1,18 +1,16 @@
-PLAYER NAME: <%= @report.player_name %><br>
-BATS: <%= @report.bats %><br>
-THROWS: <%= @report.throws %><br>
-DRAFTED: <%= @report.drafted %><br>
-POSITION: <%= @report.position %><br>
-AGE:<%= @report.age %><br>
-DOB: <%= @report.day_of_birth %><br>
-HT: <%= @report.height %><br>
-WT: <%= @report.weight %><br>
-
-<div id='flash' class='error'>
-    <a class="close" data-dismiss="alert">&#215;</a>
-    <%= flash[:error] %>
-</div>
-
+<div>
+      <h3><b>Scounting Report for:</b> <%= @report.player_name %></h3>
+      <ul>
+        <li><b>Player Name:</b> <%= @report.player_name %></li>
+        <li><b>Bats:</b> <%= @report.bats %></li>
+        <li><b>Throws:</b> <%= @report.throws %></li>
+        <li><b>Drafted:</b> <%= @report.drafted %></li>
+        <li><b>Position:</b> <%= @report.position %></li>
+        <li><b>Age:</b> <%= @report.age %></li>
+        <li><b>Date of Birth:</b> <%= @report.day_of_birth %></li>
+        <li><b>Hight:</b> <%= @report.height %></li>
+        <li><b>Weight:</b> <%= @report.weight %></li>
+      </ul>
 <form method="get" action="/reports/<%= @report.id %>/edit">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
     <input type="submit" value="Edit">
@@ -22,3 +20,8 @@ WT: <%= @report.weight %><br>
     <input id="hidden" type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete">
 </form>
+    </div>
+
+
+
+
