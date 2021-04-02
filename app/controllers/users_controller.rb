@@ -9,7 +9,7 @@ class UsersController < ApplicationController
             redirect to "/users/signup"
         else
             @user = User.create(
-            username: params[:username], 
+            username: params[:username].downcase, 
             password: params[:password]
         )
             session[:user_id] = @user.id
