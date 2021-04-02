@@ -74,14 +74,13 @@ end
 
 delete '/reports/:id/delete' do
     @report = Report.find_by_id(params[:id])    
-    if @report
+    if @report.user == current_user
         @report.delete
     end
+        flash[:error] = "NOT AUTHORIZE TO DELETE THIS REPORT"
         redirect to '/reports'
     end
 end
-
-
 
 
 
