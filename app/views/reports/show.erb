@@ -11,6 +11,7 @@
         <li><b>Hight:</b> <%= @report.height %></li>
         <li><b>Weight:</b> <%= @report.weight %></li>
       </ul>
+      <% if current_user == @report.user %>
 <form method="get" action="/reports/<%= @report.id %>/edit">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
     <input type="submit" value="Edit">
@@ -20,8 +21,10 @@
     <input id="hidden" type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete">
 </form>
+<% end %> 
     </div>
 
 
 
 
+ 

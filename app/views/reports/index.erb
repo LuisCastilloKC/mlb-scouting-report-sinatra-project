@@ -26,9 +26,10 @@
         <li><b>Hight:</b> <%= report.height %></li>
         <li><b>Weight:</b> <%= report.weight %></li>
 
-        <% if current_user == report.user %>
-            <a href="/reports/<%= report.id %>/edit">edit</a>
-        <% end %>
+        
+            <a href="/reports/<%= report.id %>">Select</a>
+            
+       
       </ul>
 
     
@@ -38,7 +39,6 @@
 <% end %>
 
 
-        
         
 
     

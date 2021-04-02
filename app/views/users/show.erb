@@ -2,6 +2,25 @@
 
 
 
+<% @user.reports.each do |profile|%>
+
+<div>
+    <h3><b>Scouting Report Number: <%= profile.id  %></b></h3>
+      <ul>
+        <li><b>Player Name:</b> <%= profile.player_name %></li>
+        <li><b>Bats:</b> <%= profile.bats %></li>
+        <li><b>Throws:</b> <%= profile.throws %></li>
+        <li><b>Drafted:</b> <%= profile.drafted %></li>
+        <li><b>Position:</b> <%= profile.position %></li>
+        <li><b>Age:</b> <%= profile.age %></li>
+        <li><b>Date of Birth:</b> <%= profile.day_of_birth %></li>
+        <li><b>Hight:</b> <%= profile.height %></li>
+        <li><b>Weight:</b> <%= profile.weight %></li>
+
+            
+       
+      </ul>
+<% end %>
 
 
 
