@@ -46,7 +46,6 @@
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
                         <a class="nav-item nav-link <%= 'active' if request.path.include?('/users') %>" href="users/<%= current_user.id %>"> Account</a>
-                            
                             <a class="nav-link" href="/reports">Reports</a>
                             <a class="nav-link" href="/reports/new">New Report</a>
                             <a class="nav-link" href="/users/logout">Logout</a>

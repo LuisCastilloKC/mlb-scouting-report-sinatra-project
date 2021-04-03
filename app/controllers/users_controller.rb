@@ -1,26 +1,30 @@
 class UsersController < ApplicationController
     
     get '/users/signup' do
-       erb :'/users/signup'
+        erb :'/users/signup'
     end
         #create action
     post '/users/signup' do
-        @user_found = User.find_by(username: params[:username])
-
-        if params[:username] != "" && params[:password] != ""
+        @user_found = User.find_by(username: params[:username].downcase)
+        @email_found = User.find_by(email: params[:email].downcase)
+        if params[:username] != "" && params[:password] != "" && params[:email] != ""
         
-            if !@user_found
+            if !@user_found && !@email_found
                 @user = User.create(
                     username: params[:username].downcase, 
-                    password: params[:password]
+                    password: params[:password],
+                    email: params[:email].downcase
+
                 )
                 session[:user_id] = @user.id
                 redirect to "/users/#{@user.id}"
+                #binding.pry
             else
+                flash[:error] = "USER FOUND TRY DIFFERENT USER"
                 redirect to "/users/signup"
             end
         else
-        
+            flash[:error] = "PLEASE FILL THE EMPTY FIELD"
             redirect to "/users/signup"
         
         end

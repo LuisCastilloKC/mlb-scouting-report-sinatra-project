@@ -1,11 +1,11 @@
 class ReportsController < ApplicationController
    
-    get '/reports' do
-        if current_user
-        @reports = Report.all #return an array
-        erb :'/reports/index'
-        end
-    end
+get '/reports' do
+     if current_user
+     @reports = Report.all #return an array
+     erb :'/reports/index'
+     end
+end
     
 get '/reports/new' do
     erb :'/reports/new'

@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
             #redirect to "/users/#{@user.id}"
             redirect to "/reports"
         else
-            flash[:error] = "Invalid login"
+            flash[:error] = "INVALID LOGIN"
             redirect to "/users/login"
         end
     end
