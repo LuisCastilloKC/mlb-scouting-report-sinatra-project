@@ -16,7 +16,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    if logged_in?
+      redirect to "/reports"
+    else
     erb :index
+    end
   end
 
   helpers do

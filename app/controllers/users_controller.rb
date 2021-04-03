@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
     
     get '/users/signup' do
-        erb :'/users/signup'
+        if !logged_in?
+            erb :'/users/signup'
+        else
+            @user = User.find(session[:user_id])
+            redirect "/users/#{@user.id}"
+        end
     end
         #create action
     post '/users/signup' do
@@ -18,7 +23,7 @@ class UsersController < ApplicationController
                 )
                 session[:user_id] = @user.id
                 redirect to "/users/#{@user.id}"
-                #binding.pry
+                
             else
                 flash[:error] = "USER FOUND TRY DIFFERENT USER"
                 redirect to "/users/signup"
