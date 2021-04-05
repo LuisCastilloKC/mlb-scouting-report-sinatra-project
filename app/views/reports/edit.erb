@@ -2,15 +2,15 @@
 <br>
 <form action="/reports/<%= @report.id %>"" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch">
-    PLAYER NAME: <input type="text" value="<%= @report.player_name %>" name="player_name">
-    BATS: <input type="text" value="<%= @report.bats %>" name="bats">
-    THROWS: <input type="text" value="<%= @report.throws %>" name="throws">
-    DRAFTED: <input type="text" value="<%= @report.drafted %>" name="drafted">
-    POSITION: <input type="text" value="<%= @report.position %>" name="position">
-    AGE: <input type="number" value="<%= @report.age %>" name="age">
-    DOB: <input type="date" value="<%= @report.day_of_birth %>" name="day_of_birth">
-    HT: <input type="number" step="any" value="<%= @report.height %>" name="height">
-    WT: <input type="number" value="<%= @report.weight %>" name="weight">
+    PLAYER NAME: <input type="text" value="<%= @report.player_name %>" name="reports[player_name]">
+    BATS: <input type="text" value="<%= @report.bats %>" name="reports[bats]">
+    THROWS: <input type="text" value="<%= @report.throws %>" name="reports[throws]">
+    DRAFTED: <input type="text" value="<%= @report.drafted %>" name="reports[drafted]">
+    POSITION: <input type="text" value="<%= @report.position %>" name="reports[position]">
+    AGE: <input type="number" value="<%= @report.age %>" name="reports[age]">
+    DOB: <input type="date" value="<%= @report.day_of_birth %>" name="reports[day_of_birth]">
+    HT: <input type="number" step="any" value="<%= @report.height %>" name="reports[height]">
+    WT: <input type="number" value="<%= @report.weight %>" name="reports[weight]">
     <input type="submit" value="submit">
 
 </form>
