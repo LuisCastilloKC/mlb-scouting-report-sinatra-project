@@ -66,42 +66,7 @@ patch "/reports/:id" do
       end
     end 
   end 
-#update route
-# patch '/reports/:id' do
-#     @report = Report.find_by(id:params[:id])
-#     if @report.user != current_user
-#         flash[:error] = "YOU CAN NOT MAKE EDIT, YOU DON'T OWN THIS REPORT"
-#         redirect to "/reports"
-#     else
-#         @report.update(
-#             player_name: params[:player_name], 
-#             bats: params[:bats], 
-#             throws: params[:throws], 
-#             drafted: params[:drafted], 
-#             position: params[:position], 
-#             age: params[:age], 
-#             day_of_birth: params[:day_of_birth], 
-#             height: params[:height], 
-#             weight: params[:weight]
-#             )
-#             redirect to "/reports/#{@report.id}"
-#     end
-# end
-# patch '/reports/:id' do
-#     if  params[:player_name] == "" || params[:bats] == "" || params[:throws] == "" || 
-#         params[:drafted] == "" || params[:position] == "" || params[:age] == "" || 
-#         params[:day_of_birth] == "" || params[:height] == "" || params[:weight] == ""
-#         redirect to "/reports/#{params[:id]}/edit"
-#     else
-#     @report = Report.find_by_id(params[:id])
-#     if @report && @report.update(params[:id])
-#         redirect to "/reports/#{@report.id}"
-#     else
-        
-#         redirect to "/reports/#{params[:id]}/edit"
-#         end
-#     end
-# end
+
 
 delete '/reports/:id/delete' do
     @report = Report.find_by_id(params[:id])    
@@ -112,24 +77,5 @@ delete '/reports/:id/delete' do
     end
 end
 
-
-
-
-
-
-# patch
-# @report = Report.find(params[:id])
-#     @report.update(
-#         player_name: params[:player_name], 
-#         bats: params[:bats], 
-#         throws: params[:throws], 
-#         drafted: params[:drafted], 
-#         position: params[:position], 
-#         age: params[:age], 
-#         day_of_birth: params[:day_of_birth], 
-#         height: params[:height], 
-#         weight: params[:weight]
-#     )
-#     redirect to "/reports/#{@report.id}"
 
 
