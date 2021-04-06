@@ -26,7 +26,11 @@ class SessionsController < ApplicationController
     end
     
     get '/users/:id' do
-        @user = User.find(params[:id])
-        erb :'/users/show'
+        if current_user && logged_in?
+            @user = User.find(params[:id])
+            erb :'/users/show'
+        else
+            redirect to "/"
+        end
     end
 end

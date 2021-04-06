@@ -1,16 +1,16 @@
 class ReportsController < ApplicationController
-   
+#index 
 get '/reports' do
      if current_user
-     @reports = Report.all #return an array
+     @reports = Report.all 
      erb :'/reports/index'
      end
 end
-    
+#New
 get '/reports/new' do
     erb :'/reports/new'
 end
-
+#Create
 post '/reports' do
     if params[:player_name] == "" || params[:bats] == "" || params[:throws] == "" || 
        params[:drafted] == "" || params[:position] == "" || params[:age] == "" || 
@@ -22,14 +22,13 @@ post '/reports' do
         if @report.save
             redirect to "/reports/#{@report.id}"
         else
-            flash[:error] = "PLEASE FILL THE EMPTY FIELD"
             redirect to "/reports/new"
         end
     end
 end
 
 
-#Read
+#Show / Reade
 get '/reports/:id' do
     @report = Report.find_by_id(params[:id])
     if @report && logged_in?
@@ -40,7 +39,7 @@ get '/reports/:id' do
 end
 
 
-
+#Edit
 get '/reports/:id/edit' do
     @report = Report.find_by_id(params[:id])
     if @report.user  == current_user && logged_in?
@@ -50,7 +49,7 @@ get '/reports/:id/edit' do
         redirect to '/reports'
     end
 end
-
+#update
 patch "/reports/:id" do 
     if params[:player_name] == "" || params[:bats] == "" || params[:throws] == "" || 
         params[:drafted] == "" || params[:position] == "" || params[:age] == "" || 
@@ -58,7 +57,6 @@ patch "/reports/:id" do
       redirect to "/posts/#{params[:id]}/edit"
     else 
       @report = Report.find_by_id(params[:id])
-                                            #hash coming from the form
       if @report && @report.update(params[:reports])
         redirect to "/reports/#{@report.id}"
       else 
@@ -76,6 +74,4 @@ delete '/reports/:id/delete' do
         redirect to '/reports'
     end
 end
-
-
 
